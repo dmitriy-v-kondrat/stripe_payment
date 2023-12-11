@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Items</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"
+          type="text/css">
+</head>
+<body>
+{% for item in object_list %}
+    <h1>{{ item.name }}</h1>
+    <span class='lead'>{{ item.description|truncatewords_html:20 }} </span>
+    <div class='body'>{{ item.currency }} {{ item.price }} </div>
+
+    <form action="{% url 'item_detail' item.id %}" method="GET">
+        <button type="submit">View details</button>
+    </form>
+{% endfor %}
+</body>
+</html>

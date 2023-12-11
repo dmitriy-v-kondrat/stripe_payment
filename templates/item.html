@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"
+          type="text/css">
+</head>
+<body>
+<h1>{{ object.name }}</h1>
+<span class='lead'>{{ object.description }} </span>
+<div class='body'>{{ item.currency }} {{ object.price }} </div>
+
+<form action="{% url 'add_order' object.id  %}" method="GET">
+    <button type="submit">Add to order</button>
+</form>
+<form action="{% url 'items' %}" method="GET">
+    <button type="submit">Back</button>
+</form>
+</body>
+</html>

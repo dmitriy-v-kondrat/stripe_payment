@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}"
+          type="text/css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    {% for price in  payment_tax %}
+        <h3>Amount: {{ payment_intent.currency }} {{ price.amount }}</h3>
+        <h3>Tax amount: {{ payment_intent.currency }} {{ price.amount_tax }}</h3>
+    {% endfor %}
+    <h3>Total amount: {{ payment_intent.currency }}
+        {{ total_cost }} </h3>
+
+
+    <form id="payment-form" data-secret="{{ payment_intent.client_secret }}">
+        <div id="payment-element">
+            <!-- Elements will create form elements here -->
+        </div>
+
+        <button id="submit">Submit</button>
+    </form>
+</section>
+</body>
+<script src="{% static 'js/main.js' %}" type="text/javascript"></script>
+
+
+{#<script type="text/javascript">#}
+{#    var stripe = Stripe("pk_test_51NM36tHpis8bAiMkulogNUKmxniKFjRVKp4OtENn8nlUNzf6BMBHmDrD9UvfIbVJICni5zQlMtuw7oSNQg3vgwln00rln012Uy");#}
+{##}
+{#    const options = {#}
+{#        clientSecret: '{{ payment_intent.client_secret }}',#}
+{#        // Fully customizable with appearance API.#}
+{#        appearance: {/*...*/},#}
+{#    };#}
+{##}
+{#    // Set up Stripe.js and Elements to use in checkout form, passing the client secret obtained in a previous step#}
+{#    const elements = stripe.elements(options);#}
+{##}
+{#    // Create and mount the Payment Element#}
+{#    const paymentElement = elements.create('payment');#}
+{#    paymentElement.mount('#payment-element');#}
+{##}
+{##}
+{#    const form = document.getElementById('payment-form');#}
+{##}
+{#    form.addEventListener('submit', async (event) => {#}
+{#        event.preventDefault();#}
+{##}
+{#        const {error} = await stripe.confirmPayment({#}
+{#            //`Elements` instance that was used to create the Payment Element#}
+{#            elements,#}
+{#            confirmParams: {#}
+{#                return_url: 'http://localhost:8000/paymentstatus/',#}
+{#            },#}
+{#        });#}
+{##}
+{#        if (error) {#}
+{#            // This point will only be reached if there is an immediate error when#}
+{#            // confirming the payment. Show error to your customer (for example, payment#}
+{#            // details incomplete)#}
+{#            const messageContainer = document.querySelector('#error-message');#}
+{#            messageContainer.textContent = error.message;#}
+{#        } else {#}
+{#            // Your customer will be redirected to your `return_url`. For some payment#}
+{#            // methods like iDEAL, your customer will be redirected to an intermediate#}
+{#            // site first to authorize the payment, then redirected to the `return_url`.#}
+{#        }#}
+{#    });#}
+{#</script>#}
+</html>

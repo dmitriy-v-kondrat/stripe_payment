@@ -1,0 +1,79 @@
+[
+{
+'sql':
+ 'SELECT
+ "django_session"."session_key", "django_session"."session_data",
+ "django_session"."expire_date"
+  FROM
+  "django_session"
+   WHERE
+    ("django_session"."expire_date" >
+     \'2023-12-09 09:19:23.175409\'
+      AND "django_session"."session_key" = \'jc0oe0firxspdvk1pbgxpr7vt4vtxlq0\')
+       LIMIT 21', 'time': '0.000'
+},
+ {'sql':
+  'SELECT
+   "store_order"."id", "store_order"."stripe_id",
+    "store_order"."payment", "store_order"."total_price",
+     "store_order"."pay_currency"
+    FROM "store_order"
+    WHERE
+     "store_order"."id" = \'5b7d86dcea954d1184bb95e86151fa99\'
+      LIMIT 21', 'time': '0.000'},
+
+{'sql':
+ 'SELECT
+ "store_discount"."id",
+  "store_discount"."order_id",
+   "store_discount"."percent"
+   FROM
+    "store_discount"
+   WHERE
+    "store_discount"."percent" = 20 LIMIT 21', 'time': '0.000'},
+
+{'sql':
+ 'SELECT
+  "store_discount"."id",
+  "store_discount"."order_id",
+   "store_discount"."percent"
+    FROM
+     "store_discount"
+      WHERE
+      "store_discount"."order_id" = \'5b7d86dcea954d1184bb95e86151fa99\'', 'time': '0.000'},
+
+{'sql':
+ 'SELECT
+  "store_tax"."id",
+   "store_tax"."order_id",
+    "store_tax"."percent"
+     FROM
+     "store_tax"
+     WHERE
+      "store_tax"."percent" = 20 LIMIT 21', 'time': '0.000'},
+
+{'sql':
+ 'UPDATE
+  "store_tax"
+   SET
+    "order_id" = \'5b7d86dcea954d1184bb95e86151fa99\'
+   WHERE
+    "store_tax"."id" IN (1)', 'time': '0.132'},
+
+{'sql':
+ 'SELECT
+  "store_item"."name",
+   "store_orderitem"."item_ps",
+   "store_orderitem"."item_id"
+  FROM
+   "store_orderitem"
+  INNER JOIN
+   "store_item"
+  ON
+   ("store_orderitem"."item_id" = "store_item"."id")
+  WHERE
+   "store_orderitem"."order_id" = \'5b7d86dcea954d1184bb95e86151fa99\'', 'time': '0.000'},
+
+{'sql': 'SELECT "store_tax"."id", "store_tax"."order_id", "store_tax"."percent" FROM "store_tax" WHERE "store_tax"."order_id" = \'5b7d86dcea954d1184bb95e86151fa99\' ORDER BY "store_tax"."id" ASC LIMIT 1', 'time': '0.000'}, {'sql': 'SELECT "store_discount"."id", "store_discount"."order_id", "store_discount"."percent" FROM "store_discount" WHERE "store_discount"."order_id" = \'5b7d86dcea954d1184bb95e86151fa99\' ORDER BY "store_discount"."id" DESC LIMIT 1', 'time': '0.000'},
+
+]

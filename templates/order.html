@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy cool new product</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}"
+          type="text/css">
+</head>
+<body>
+<section>
+    <div class="product">
+        <div class="description">
+            <h3>Order № {{ order.id }}</h3>
+            <h5>{{ order.get_pay_currency_display }} {{ order.total_price }}</h5>
+            <div id="result"></div>
+        </div>
+    </div>
+    <form action="{% url 'items' %}" method="GET">
+        <button type="submit">More items</button>
+    </form>
+    <form action="{% url 'checkout' %}" method="GET">
+        <button type="submit" class="btn btn-primary">Buy now and get a discount</button>
+    </form>
+
+    <h4>Enter address for tax</h4>
+    <form method="post" >{% csrf_token %}
+        <label for="email">Email</label> <input type="text" id="email" />
+        <label for="address_line1">Address Line 1</label> <input type="text" id="address_line1" />
+        <label for="address_city">City</label> <input type="text" id="address_city" />
+        <label for="address_state">State</label> <select id="address_state">
+            <option value="WA">Washington</option>
+            <option value="MA">Massachusetts</option>
+            <!-- add more states here -->
+        </select>
+        <br>
+        <label for="address_postal_code">Postal code</label> <input type="text" id="address_postal_code" />
+        <label for="address_country">Country</label> <select id="address_country">
+            <option value="US">United States</option>
+            <option value="DE">Germany</option>
+            <option value="IE">Ireland</option>
+            <!-- add more countries here -->
+        </select>
+
+        <button type="button" id="checkout-button">Payment Intent</button>
+    </form>
+
+</section>
+</body>
+<script src="{% static 'js/main.js' %}" type="text/javascript"></script>
+</html>
