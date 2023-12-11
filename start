@@ -5,6 +5,6 @@ set -o pipefail
 set -o nounset
 
 python manage.py migrate
-python manage.py collectstatic --noinput
+python manage.py loaddata fixtures/package.json --app store.item --app store.tax --app store.discount
 python manage.py runserver 0.0.0.0:8000
 stripe listen --forward-to localhost:8080/webhook

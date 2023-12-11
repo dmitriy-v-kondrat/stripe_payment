@@ -1,0 +1,72 @@
+[
+{
+    "model": "store.item",
+    "pk": 1,
+    "fields": {
+        "name": "mouse",
+        "description": "m",
+        "price": 10,
+        "currency": "$"
+    }
+},
+{
+    "model": "store.item",
+    "pk": 2,
+    "fields": {
+        "name": "keyboard",
+        "description": "k",
+        "price": 20,
+        "currency": "€"
+    }
+},
+{
+    "model": "store.item",
+    "pk": 3,
+    "fields": {
+        "name": "phone",
+        "description": "p",
+        "price": 150,
+        "currency": "$"
+    }
+},
+{
+    "model": "store.tax",
+    "pk": 1,
+    "fields": {
+        "order": null,
+        "percent": 20
+    }
+},
+{
+    "model": "store.discount",
+    "pk": 1,
+    "fields": {
+        "order": null,
+        "percent": 5
+    }
+},
+{
+    "model": "store.discount",
+    "pk": 2,
+    "fields": {
+        "order": null,
+        "percent": 10
+    }
+},
+{
+    "model": "store.discount",
+    "pk": 3,
+    "fields": {
+        "order": null,
+        "percent": 15
+    }
+},
+{
+    "model": "store.discount",
+    "pk": 4,
+    "fields": {
+        "order": null,
+        "percent": 20
+    }
+}
+]
