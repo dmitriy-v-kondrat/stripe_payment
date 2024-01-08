@@ -7,7 +7,6 @@ def clean_session(session):
         del session['payment_intent']
     if 'session_id' in session.keys():
         del session['session_id']
-    session.save()
 
 
 def discount_percentages(price):

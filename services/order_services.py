@@ -59,8 +59,8 @@ def create_order(**kwargs):
     return order
 
 
-def items_ordered(item):
-    """ Create a dictionary. """
+def items_ordered(item: dict) -> str:
+    """ Description items for stripe session. """
     items_str = str()
     for i in item:
         items_str += f" id: {i.get('item_id')}," \

@@ -10,7 +10,7 @@ RETURN_URL = 'http://127.0.0.1:8000/'
 
 def public_key():
     """ Return stpipe public key. """
-    return {'publicKey': settings.STRIPE_PUBLIC_KEY}
+    return {'publicKey': STRIPE_PUBLIC_KEY}
 
 
 def create_tax_calculation(order, address):
