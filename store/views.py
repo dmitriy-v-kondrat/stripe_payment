@@ -26,9 +26,6 @@ from services.stripe_services import (create_customer,
 STRIPE_WEBHOOK_SECRET = settings.STRIPE_WEBHOOK_SECRET
 
 
-# > Done! The Stripe CLI is configured for your account with account id acct_1NM36tHpis8bAiMk
-
-
 def stripe_config(request):
     if request.method == 'GET':
         return JsonResponse(public_key(), safe=False)

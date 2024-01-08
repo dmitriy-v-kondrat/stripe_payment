@@ -14,6 +14,7 @@ services:
       - .:/app
     ports:
       - 8000:8000
+    tty: true
     # env_file is used to manage the env variables of our project
     env_file:
       - ./.env

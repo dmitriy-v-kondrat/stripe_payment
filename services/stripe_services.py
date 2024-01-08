@@ -5,7 +5,7 @@ stripe.api_key = settings.STRIPE_API_KEY
 STRIPE_WEBHOOK_SECRET = settings.STRIPE_WEBHOOK_SECRET
 STRIPE_PUBLIC_KEY = settings.STRIPE_PUBLIC_KEY
 
-RETURN_URL = 'http://127.0.0.1:8000/'
+RETURN_URL = f"http://{settings.ALLOWED_HOSTS[0]}:8000/"
 
 
 def public_key():

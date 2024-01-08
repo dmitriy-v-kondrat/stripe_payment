@@ -1,28 +1,6 @@
 console.log("Sanity check!");
 
-// Get Stripe publishable key
-// fetch("/config/")
-//     .then((result) => { return result.json(); })
-//     .then((data) => {
-//         // Initialize Stripe.js
-//         const stripe = Stripe(data.publicKey);
-//
-//         // Event handler
-//         document.querySelector("#submitBtn").addEventListener("click", () => {
-//             // Get Checkout Session ID
-//             fetch("/checkout/")
-//                 .then((result) => { return result.json(); })
-//                 .then((data) => {
-//                     console.log(data);
-//                     // Redirect to Stripe Checkout
-//                     return stripe.redirectToCheckout({sessionId: data.sessionId})
-//                 })
-//                 .then((res) => {
-//                     console.log(res);
-//                 });
-//         });
-//     });
-// "pk_test_51NM36tHpis8bAiMkulogNUKmxniKFjRVKp4OtENn8nlUNzf6BMBHmDrD9UvfIbVJICni5zQlMtuw7oSNQg3vgwln00rln012Uy"
+
 
 fetch("/config/")
     .then((result) => {
@@ -122,7 +100,7 @@ fetch("/config/")
                 //`Elements` instance that was used to create the Payment Element
                 elements,
                 confirmParams: {
-                    return_url: 'http://localhost:8000/paymentstatus/',
+                    return_url: 'http://0.0.0.0:8000/paymentstatus/',
                 },
             });
 
